@@ -2,26 +2,31 @@
 
 Last updated: 2026-06-22
 
-## Immediate task: Phase 2 canonical game data
+## Immediate task: Phase 3 unit catalogue vertical slice
 
-Before starting Phase 2, inspect the working tree. Phase 0/1 is verified but may still be uncommitted because the previous session could not write `.git/index.lock`. Create the local milestone commit first if Git metadata is writable.
+Before starting Phase 3, inspect the working tree. Phase 2 is verified but may still be uncommitted because the previous session could not write `.git/index.lock`. Create the local milestone commit first if Git metadata is writable.
 
-Build the smallest validated vertical slice of the shared game-data layer:
+Implement the catalogue against the Phase 2 loader without reading raw JSON in feature code:
 
-1. Define a `GameVersion` metadata schema and a deliberately evolvable `Unit` schema with Zod.
-2. Preserve distinct `category`, `regimentType`, and `regimentGroup` fields.
-3. Create `data/game/<sample-version>/metadata.json` and a tiny representative unit dataset covering line battalions and support companies.
-4. Implement framework-independent loaders under `src/lib/game-data/`.
-5. Report file paths and readable Zod issues when validation fails.
-6. Reject duplicate stable IDs and unresolved local references.
-7. Add a `validate:data` npm command that runs during tests and CI.
-8. Add focused tests for valid data, malformed records, duplicate IDs, and cross-reference failures.
-9. Document exactly how to add a version or unit without duplicating data.
+1. Load the `1.16-sample` `GameDataSet` in server-only route code.
+2. Add a small authored unit-guidance schema keyed by stable unit ID for explanation, strengths, weaknesses, and typical uses. Do not duplicate mechanical statistics.
+3. Replace the `/units` placeholder with a compact catalogue showing all six sample units.
+4. Add client-side search and filters for unit kind and category.
+5. Add `/units/[unitId]` detail pages with:
+   - Canonical mechanical statistics.
+   - Equipment and DLC requirements resolved to display names.
+   - Version/sample-status warning.
+   - Separate practical guidance.
+   - Related-unit links resolved by stable ID.
+6. Add clear empty, invalid-ID, and missing-guidance states.
+7. Add unit, component, route, and relevant browser tests.
+8. Keep the division builder untouched until the catalogue proves the data access pattern.
 
 ## Constraints
 
-- Do not begin the catalogue UI until the loaders and validation tests are clean.
-- Do not attempt a complete HOI4 data import.
-- Do not claim exact mechanical accuracy for fields affected by equipment design, doctrine, technology, or country modifiers.
+- Do not expand to the full HOI4 dataset.
+- Do not present `1.16-sample` values as verified gameplay facts.
+- Do not place strengths, weaknesses, or recommendations in canonical mechanical JSON.
+- Do not add a database or authentication.
 - Keep `../divcheck` read-only.
 - Update progress, next-task, and decision documentation after the milestone.

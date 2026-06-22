@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "id": "engineer-company",
+      "name": "Engineer Company",
+      "kind": "support-company",
+      "category": "support",
+      "combatWidth": 0,
+      "regimentType": null,
+      "regimentGroup": null,
+      "requiredDlcIds": [],
+      "equipmentRequirements": [
+        {
+          "equipmentId": "infantry-equipment",
+          "amount": 10
+        },
+        {
+          "equipmentId": "support-equipment",
+          "amount": 30
+        }
+      ],
+      "relatedUnitIds": [],
+      "stats": {
+        "organization": 0,
+        "hp": 0,
+        "recoveryRate": 0,
+        "suppression": 0,
+        "weight": 0.1,
+        "supplyUse": 0.02,
+        "fuelUse": 0,
+        "speed": 0,
+        "softAttack": 0,
+        "hardAttack": 0,
+        "airAttack": 0,
+        "defense": 0,
+        "breakthrough": 0,
+        "armor": 0,
+        "piercing": 0,
+        "hardness": 0,
+        "entrenchment": 1
+      }
+    },
+    {
+      "id": "support-artillery",
+      "name": "Support Artillery",
+      "kind": "support-company",
+      "category": "support",
+      "combatWidth": 0,
+      "regimentType": null,
+      "regimentGroup": null,
+      "requiredDlcIds": [],
+      "equipmentRequirements": [
+        {
+          "equipmentId": "artillery-equipment",
+          "amount": 12
+        }
+      ],
+      "relatedUnitIds": ["line-artillery"],
+      "stats": {
+        "organization": 0,
+        "hp": 0.2,
+        "recoveryRate": 0,
+        "suppression": 0,
+        "weight": 0.1,
+        "supplyUse": 0.05,
+        "fuelUse": 0,
+        "speed": 0,
+        "softAttack": 15,
+        "hardAttack": 1,
+        "airAttack": 0,
+        "defense": 4,
+        "breakthrough": 2,
+        "armor": 0,
+        "piercing": 5,
+        "hardness": 0,
+        "entrenchment": 0
+      }
+    }
+  ]
+}

@@ -38,6 +38,9 @@ jobs:
       - name: Run unit and component tests
         run: npm test
 
+      - name: Validate canonical game data
+        run: npm run validate:data
+
       - name: Build production application
         run: npm run build
 

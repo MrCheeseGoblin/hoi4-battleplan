@@ -16,7 +16,7 @@ Phase 0 (repository foundation) and Phase 1 (application shell) are complete. Th
 - Accessible error and not-found states.
 - Linting, formatting, type-checking, unit/component tests, browser smoke tests, and CI.
 
-Phase 2, the canonical game-data layer, is the next milestone. No game-data calculations, authentication, database, or community features are implemented yet.
+Phase 2 adds the first canonical, version-aware game-data schemas, loaders, validation command, and representative sample snapshot. No catalogue UI, game-data calculations, authentication, database, or community features are implemented yet.
 
 ## Tech stack
 
@@ -53,6 +53,7 @@ Run the complete local verification sequence:
 npm run lint
 npm run typecheck
 npm test
+npm run validate:data
 npm run build
 npm run test:e2e
 ```
@@ -67,6 +68,12 @@ Playwright requires a one-time browser install:
 
 ```bash
 npm run test:e2e:install
+```
+
+Validate every canonical game-data file without running the rest of the suite:
+
+```bash
+npm run validate:data
 ```
 
 ## Repository map
@@ -104,6 +111,7 @@ The master product brief is preserved as `MASTER_BUILD_BRIEF.md`. It is the auth
 - [MVP scope](docs/mvp-scope.md)
 - [Architecture](docs/architecture.md)
 - [Data strategy](docs/data-strategy.md)
+- [Adding game data](docs/adding-game-data.md)
 - [Design direction](docs/design-direction.md)
 - [Roadmap](docs/roadmap.md)
 - [Architecture decisions](docs/decisions.md)

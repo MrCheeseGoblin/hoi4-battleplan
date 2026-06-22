@@ -73,3 +73,32 @@ Record durable choices here so future sessions do not have to reconstruct them.
 - **Decision:** Store the local Playwright browser in an ignored repository directory and run E2E tests through `scripts/run-e2e.mjs`.
 - **Why:** The standard user cache is not reliably writable in the Windows development environment, and Playwright's automatic web-server teardown did not exit cleanly there.
 - **Consequence:** `npm run test:e2e:install` is required once per local checkout. The runner starts and stops only the production server process it owns.
+
+## ADR-011: Strict schema-versioned JSON documents
+
+- **Date:** 2026-06-22
+- **Status:** Accepted
+- **Decision:** Every canonical JSON document declares `schemaVersion: 1`, and Zod object schemas reject unknown fields.
+- **Why:** Explicit schema versions give future migrations a stable boundary, while strict objects catch misspelled or obsolete properties instead of silently discarding them.
+
+## ADR-012: Complete per-version snapshots with local references
+
+- **Date:** 2026-06-22
+- **Status:** Accepted
+- **Decision:** Each game-version directory contains its own metadata, DLCs, equipment, and units. References resolve only inside that directory.
+- **Why:** A template or guide can load one reproducible snapshot without inheriting changed records from another patch.
+- **Consequence:** Some unchanged records will be repeated across future version snapshots. This is intentional historical versioning, not feature-level duplication.
+
+## ADR-013: Repository JSON loader is the canonical access boundary
+
+- **Date:** 2026-06-22
+- **Status:** Accepted
+- **Decision:** Application features consume typed `GameDataSet` objects returned by `src/lib/game-data`; they must not import raw JSON files.
+- **Why:** One loader centralizes runtime validation, duplicate detection, reference checks, and version semantics for both the catalogue and division builder.
+
+## ADR-014: Mechanical records exclude practical guidance
+
+- **Date:** 2026-06-22
+- **Status:** Accepted
+- **Decision:** Canonical unit records contain classifications, requirements, relationships, and mechanical statistics. Strengths, weaknesses, typical uses, and recommendations will live in a separate authored-content layer.
+- **Why:** This prevents Battleplan advice from being mistaken for official game data while still letting both layers reference the same stable unit IDs.

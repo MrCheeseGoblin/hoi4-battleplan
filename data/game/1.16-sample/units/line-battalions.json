@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "id": "infantry",
+      "name": "Infantry",
+      "kind": "line-battalion",
+      "category": "infantry",
+      "combatWidth": 2,
+      "regimentType": "infantry",
+      "regimentGroup": "infantry-battalions",
+      "requiredDlcIds": [],
+      "equipmentRequirements": [
+        {
+          "equipmentId": "infantry-equipment",
+          "amount": 100
+        }
+      ],
+      "relatedUnitIds": ["motorized-infantry"],
+      "stats": {
+        "organization": 60,
+        "hp": 25,
+        "recoveryRate": 0.3,
+        "suppression": 1.5,
+        "weight": 0.5,
+        "supplyUse": 0.07,
+        "fuelUse": 0,
+        "speed": 4,
+        "softAttack": 6,
+        "hardAttack": 1,
+        "airAttack": 0,
+        "defense": 22,
+        "breakthrough": 2,
+        "armor": 0,
+        "piercing": 5,
+        "hardness": 0,
+        "entrenchment": 2
+      }
+    },
+    {
+      "id": "line-artillery",
+      "name": "Line Artillery",
+      "kind": "line-battalion",
+      "category": "artillery",
+      "combatWidth": 3,
+      "regimentType": "infantry",
+      "regimentGroup": "combat-support-battalions",
+      "requiredDlcIds": [],
+      "equipmentRequirements": [
+        {
+          "equipmentId": "artillery-equipment",
+          "amount": 36
+        }
+      ],
+      "relatedUnitIds": ["support-artillery"],
+      "stats": {
+        "organization": 0,
+        "hp": 0.6,
+        "recoveryRate": 0.1,
+        "suppression": 0,
+        "weight": 0.5,
+        "supplyUse": 0.2,
+        "fuelUse": 0,
+        "speed": 4,
+        "softAttack": 25,
+        "hardAttack": 2,
+        "airAttack": 0,
+        "defense": 10,
+        "breakthrough": 6,
+        "armor": 0,
+        "piercing": 5,
+        "hardness": 0,
+        "entrenchment": 0
+      }
+    },
+    {
+      "id": "motorized-infantry",
+      "name": "Motorized Infantry",
+      "kind": "line-battalion",
+      "category": "mobile",
+      "combatWidth": 2,
+      "regimentType": "mobile",
+      "regimentGroup": "mobile-battalions",
+      "requiredDlcIds": [],
+      "equipmentRequirements": [
+        {
+          "equipmentId": "infantry-equipment",
+          "amount": 100
+        },
+        {
+          "equipmentId": "motorized-equipment",
+          "amount": 50
+        }
+      ],
+      "relatedUnitIds": ["infantry"],
+      "stats": {
+        "organization": 60,
+        "hp": 25,
+        "recoveryRate": 0.3,
+        "suppression": 1.5,
+        "weight": 0.7,
+        "supplyUse": 0.11,
+        "fuelUse": 1.2,
+        "speed": 12,
+        "softAttack": 6,
+        "hardAttack": 1,
+        "airAttack": 0,
+        "defense": 22,
+        "breakthrough": 2,
+        "armor": 0,
+        "piercing": 5,
+        "hardness": 0.1,
+        "entrenchment": 2
+      }
+    },
+    {
+      "id": "medium-tank",
+      "name": "Medium Tank",
+      "kind": "line-battalion",
+      "category": "armored",
+      "combatWidth": 2,
+      "regimentType": "armored",
+      "regimentGroup": "armored-battalions",
+      "requiredDlcIds": [],
+      "equipmentRequirements": [
+        {
+          "equipmentId": "medium-tank-equipment",
+          "amount": 50
+        }
+      ],
+      "relatedUnitIds": [],
+      "stats": {
+        "organization": 10,
+        "hp": 2,
+        "recoveryRate": 0.3,
+        "suppression": 2.5,
+        "weight": 1,
+        "supplyUse": 0.3,
+        "fuelUse": 2.5,
+        "speed": 8,
+        "softAttack": 15,
+        "hardAttack": 12,
+        "airAttack": 0,
+        "defense": 5,
+        "breakthrough": 36,
+        "armor": 45,
+        "piercing": 30,
+        "hardness": 0.8,
+        "entrenchment": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "equipment": [
+    {
+      "id": "artillery-equipment",
+      "name": "Artillery Equipment",
+      "category": "artillery"
+    },
+    {
+      "id": "infantry-equipment",
+      "name": "Infantry Equipment",
+      "category": "infantry-equipment"
+    },
+    {
+      "id": "medium-tank-equipment",
+      "name": "Medium Tank Equipment",
+      "category": "armored"
+    },
+    {
+      "id": "motorized-equipment",
+      "name": "Motorized Equipment",
+      "category": "motorized"
+    },
+    {
+      "id": "support-equipment",
+      "name": "Support Equipment",
+      "category": "support-equipment"
+    }
+  ]
+}

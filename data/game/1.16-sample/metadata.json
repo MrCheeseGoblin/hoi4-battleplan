@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "1.16-sample",
+  "label": "HOI4 1.16 representative sample",
+  "gameVersion": "1.16 sample",
+  "status": "sample",
+  "verifiedAt": null,
+  "sourceNotes": [
+    "Representative schema and loader data only.",
+    "Mechanical values must be verified against an allowed primary game source before public gameplay use."
+  ]
+}

@@ -56,7 +56,7 @@ Empty feature and data directories are added only when their first implementatio
 - Vitest covers pure domain logic.
 - Testing Library covers important shared components and accessible behavior.
 - Playwright covers a small number of critical user journeys.
-- Build-time data validation will be added in Phase 2 and run in CI.
+- Phase 2 data loaders synchronously read repository JSON, validate it with Zod, and return a complete version snapshot. Validation runs in tests, production builds, and CI.
 
 ## Future persistence
 
@@ -69,3 +69,4 @@ PostgreSQL and a typed ORM may be introduced when community features require per
 - No network calls for canonical game data at runtime.
 - No duplicated unit statistics in UI modules.
 - No direct dependency from pure evaluation logic to Next.js or React.
+- Canonical consumers load a complete `GameDataSet`; feature code must not read raw JSON files directly.

@@ -10,19 +10,18 @@ data/game/<game-version>/
 
 The unit catalogue and division builder must load the same records through the same validated loader. Feature-specific copies of unit statistics are forbidden.
 
-## Planned layout
+## Implemented Phase 2 layout
 
 ```text
 data/game/<game-version>/
   metadata.json
+  dlcs.json
+  equipment.json
   units/
-  equipment/
-  terrain/
-  technologies/
-  doctrines/
+    *.json
 ```
 
-Phase 2 will introduce only a small representative sample.
+The loader reads every JSON file directly inside `units/` and rejects unknown entries so files are not silently ignored. Terrain, technologies, doctrines, and other entities will be added only when a feature needs them.
 
 ## Validation
 
@@ -32,19 +31,23 @@ Phase 2 will introduce only a small representative sample.
 - Stable IDs must be unique within their entity namespace.
 - A validation command runs locally, in tests, and in CI.
 - Cross-references such as equipment or related-unit IDs must resolve.
+- Each JSON document declares `schemaVersion`.
+- Unknown fields fail validation so misspellings cannot silently enter the canonical dataset.
+- Unit references resolve only inside their own game-version snapshot.
 
 ## Version model
 
 Game-version directories are immutable historical snapshots once published. Corrections remain possible, but balance updates create a new version rather than silently rewriting the meaning of old templates or guides.
 
-Metadata should eventually record:
+Metadata currently records:
 
-- Human-readable game version.
 - Stable version ID.
-- Release or effective date when known.
+- Human-readable label and represented game version.
 - Data verification status.
+- Last verification date when known.
 - Source notes.
-- Supported DLC assumptions.
+
+The directory name must exactly match the metadata ID.
 
 ## Unit classification
 
@@ -65,3 +68,7 @@ Battleplan recommendations and guide prose belong under `content` or framework-i
 ## Accuracy
 
 Equipment designs, technologies, doctrines, country modifiers, and DLC can alter results. Early schemas should permit future modifiers, but the MVP must label simplified assumptions rather than claim complete simulation accuracy.
+
+The initial `1.16-sample` snapshot is explicitly representative and unverified. It proves the data pipeline; it is not yet a public gameplay authority.
+
+Contributor steps and error examples are documented in [adding-game-data.md](adding-game-data.md).

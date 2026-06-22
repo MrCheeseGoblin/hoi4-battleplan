@@ -9,17 +9,18 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run validate:data && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "validate:data": "tsx scripts/validate-game-data.ts",
     "test:e2e": "node scripts/run-e2e.mjs",
     "test:e2e:install": "cross-env PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers playwright install chromium",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "verify": "npm run lint && npm run typecheck && npm test && npm run build"
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run validate:data && npm run build"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -45,6 +46,7 @@
     "prettier": "3.8.4",
     "prettier-plugin-tailwindcss": "0.8.0",
     "tailwindcss": "4.3.1",
+    "tsx": "4.22.4",
     "typescript": "6.0.3",
     "vite": "8.0.16",
     "vitest": "4.1.9"
