@@ -1,2 +1,113 @@
-# hoi4-battleplan
-Unofficial HOI4 community platform for division building and grading, unit stats, nation guides, community templates, and game updates.
+# HOI4 Battleplan
+
+**Build divisions. Explore units. Master nations.**
+
+HOI4 Battleplan is an unofficial community platform for Hearts of Iron IV players. It will combine practical unit information, a transparent division-template coach, and version-aware nation guides in one compact website.
+
+The project is not affiliated with or endorsed by Paradox Interactive. It uses an original interface and does not include official game artwork, logos, fonts, or other copyrighted assets.
+
+## Current status
+
+Phase 0 (repository foundation) and Phase 1 (application shell) are complete. The current application provides:
+
+- A responsive shared layout and original visual system.
+- Homepage and placeholder routes for divisions, units, and guides.
+- An about page with the project principles and disclaimer.
+- Accessible error and not-found states.
+- Linting, formatting, type-checking, unit/component tests, browser smoke tests, and CI.
+
+Phase 2, the canonical game-data layer, is the next milestone. No game-data calculations, authentication, database, or community features are implemented yet.
+
+## Tech stack
+
+- Next.js App Router
+- React and strict TypeScript
+- Tailwind CSS
+- Zod for future runtime data validation
+- Vitest and Testing Library
+- Playwright
+- ESLint and Prettier
+- npm
+
+The detailed rationale is in [docs/architecture.md](docs/architecture.md).
+
+## Requirements
+
+- Node.js 20.19 or newer
+- npm 11 or newer
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Verification
+
+Run the complete local verification sequence:
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run test:e2e
+```
+
+Formatting can be checked separately with:
+
+```bash
+npm run format:check
+```
+
+Playwright requires a one-time browser install:
+
+```bash
+npm run test:e2e:install
+```
+
+## Repository map
+
+```text
+src/
+  app/                  Routes, layouts, and route-level states
+  components/           Shared layout and UI components
+  features/             Feature modules as they are implemented
+  lib/                  Framework-independent data and domain logic
+  types/                Shared TypeScript types
+data/game/              Version-controlled canonical game data
+content/                Version-controlled guides and curated content
+docs/                   Product, architecture, decisions, and handoff notes
+tests/                  Browser smoke tests
+```
+
+## Working on the project
+
+Before changing code, read:
+
+1. `README.md`
+2. `AGENTS.md`
+3. `docs/progress.md`
+4. `docs/next.md`
+5. `docs/decisions.md`
+
+`../divcheck` is read-only reference material. Never modify it.
+
+The master product brief is preserved as `MASTER_BUILD_BRIEF.md`. It is the authoritative scope and roadmap unless a later explicit user instruction changes direction.
+
+## Documentation
+
+- [Product vision](docs/product-vision.md)
+- [MVP scope](docs/mvp-scope.md)
+- [Architecture](docs/architecture.md)
+- [Data strategy](docs/data-strategy.md)
+- [Design direction](docs/design-direction.md)
+- [Roadmap](docs/roadmap.md)
+- [Architecture decisions](docs/decisions.md)
+- [Progress](docs/progress.md)
+- [Next task](docs/next.md)
+
+No licence has been added because the repository owner has not requested one.
