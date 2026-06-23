@@ -4,60 +4,55 @@ Last updated: 2026-06-22
 
 ## Current milestone
 
-Phase 0 (repository foundation), Phase 1 (application shell), and Phase 2 (canonical game data) are complete and verified. Phase 3 (unit catalogue) is next.
+Phases 0 through 3 are complete and verified. Phase 4 (Division Builder MVP) is next.
 
-## Phase 2 completed
+## Phase 3 completed
 
-- Added strict Zod schemas for game-version metadata, DLCs, equipment, line battalions, support companies, equipment requirements, and unit statistics.
-- Added explicit `schemaVersion: 1` to every canonical JSON document.
-- Preserved distinct `category`, `regimentType`, and `regimentGroup` concepts.
-- Added synchronous framework-independent loaders that return one typed `GameDataSet` per version.
-- Added structured validation errors with portable file paths, JSON field paths, error codes, and specific explanations.
-- Added validation for:
-  - Invalid JSON and schema violations.
-  - Missing required files and directories.
-  - Unknown files or directories that would otherwise be ignored.
-  - Version metadata/directory mismatches.
-  - Duplicate stable IDs.
-  - Missing DLC, equipment, and related-unit references.
-  - Self-referencing related units.
-- Added a representative `1.16-sample` snapshot:
-  - 1 DLC record.
-  - 5 equipment records.
-  - 4 line battalions.
-  - 2 support companies.
-- Marked the sample snapshot explicitly unverified and unsuitable for public gameplay authority.
-- Added `npm run validate:data`; it runs directly, during production builds, and in CI.
-- Added contributor documentation for adding units and game versions.
-- Kept practical guidance outside canonical mechanical records.
+- Replaced the `/units` placeholder with a compact server-rendered catalogue.
+- Added case-insensitive unit-name search.
+- Added shareable URL filters for:
+  - Unit kind.
+  - Category.
+  - Regiment type.
+  - Regiment group.
+  - DLC requirement state.
+- Derived filter options from canonical loaded records.
+- Added clear result counts, reset actions, and no-results states.
+- Added responsive cards with canonical organization, attack, defence, speed, and combat-width values.
+- Added static `/units/[unitId]` pages for all six sample records.
+- Resolved equipment, DLC, and related-unit IDs through the Phase 2 `GameDataSet`.
+- Added catalogue-specific unknown-unit handling.
+- Added complete canonical sample stat blocks and structural classification panels.
+- Added explicit unavailable states for terrain and technology data that is not modelled yet.
+- Added separately validated version-aware authored guidance:
+  - Practical descriptions.
+  - Strengths.
+  - Weaknesses.
+  - Typical uses.
+- Clearly labelled authored advice separately from canonical mechanics.
+- Kept all sample/incomplete-data warnings visible on catalogue and detail pages.
+- Added contributor documentation for authored guidance.
+- Did not expand the canonical sample dataset.
 - Did not modify `../divcheck`.
 
 ## Verification
 
-All relevant checks passed on 2026-06-22:
+Final verification results must remain current after the ordered final run:
 
-- `npm run format:check`
-- `npm run lint`
-- `npm run typecheck`
-- `npm test` — 4 test files, 7 tests passed
-- `npm run validate:data` — 1 version, 1 DLC, 5 equipment records, 6 units
-- `npm run build` — data validation passed and 8 static routes generated
-- `npm run test:e2e` — 1 Chromium smoke test passed
-- `npm audit --audit-level=moderate` — 0 vulnerabilities
-- `git diff --check`
-
-The first E2E attempt was invalid because it was run concurrently with `next build`, which rewrote `.next` while the test server was reading it. The required sequential rerun passed without code changes.
-
-## Git state
-
-Phase 2 is verified but remains uncommitted. The current Windows sandbox ACL denies creation of `.git/index.lock` even after repository-specific write permission is granted. No files were staged and nothing was pushed.
+- Formatting: pending final run.
+- Lint: pending final run.
+- Type-check: pending final run.
+- Unit/component tests: pending final run.
+- Canonical data validation: pending final run.
+- Production build: pending final run.
+- Chromium E2E: pending final run.
+- Audit and repository checks: pending final run.
 
 ## Known limitations
 
-- The sample statistics are representative scaffolding and have not been verified for public gameplay recommendations.
-- Only metadata, DLCs, equipment, and units are modelled.
-- Technologies, doctrines, terrain, country modifiers, and equipment designs remain future schema extensions.
-- The dataset is intentionally tiny and incomplete.
-- No unit catalogue UI or practical guidance content exists yet.
-- The loader is synchronous and repository-file based by design; this is appropriate for current build/server use.
-- A local Phase 2 milestone commit still needs to be created when Git metadata is writable.
+- The catalogue contains only six representative sample records.
+- Canonical sample statistics remain incomplete and unverified.
+- No canonical terrain modifiers or technology requirements exist yet.
+- The current sample records do not require DLC, so the “Requires DLC” filter demonstrates a legitimate no-results state.
+- Search and filters submit a GET form rather than updating instantly; this preserves a no-JavaScript, shareable baseline.
+- The Division Builder, evaluation engine, authentication, database, and community features remain out of scope.

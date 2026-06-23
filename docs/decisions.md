@@ -102,3 +102,17 @@ Record durable choices here so future sessions do not have to reconstruct them.
 - **Status:** Accepted
 - **Decision:** Canonical unit records contain classifications, requirements, relationships, and mechanical statistics. Strengths, weaknesses, typical uses, and recommendations will live in a separate authored-content layer.
 - **Why:** This prevents Battleplan advice from being mistaken for official game data while still letting both layers reference the same stable unit IDs.
+
+## ADR-015: Version-aware validated unit guidance
+
+- **Date:** 2026-06-22
+- **Status:** Accepted
+- **Decision:** Store practical unit guidance in `content/unit-guidance/<game-version-id>.json`, validate it with Zod, and require every guidance ID to resolve in that version's canonical dataset.
+- **Why:** Advice can change between patches without contaminating mechanical records or losing stable links to units.
+
+## ADR-016: Server-rendered catalogue filters use URL query parameters
+
+- **Date:** 2026-06-22
+- **Status:** Accepted
+- **Decision:** Implement catalogue search and filters as a semantic GET form. Parse and apply filters in framework-independent utilities on the server.
+- **Why:** Filtered views are shareable, refresh-safe, keyboard-accessible, and useful without client-side state or extra JavaScript.

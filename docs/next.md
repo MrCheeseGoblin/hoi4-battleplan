@@ -2,31 +2,30 @@
 
 Last updated: 2026-06-22
 
-## Immediate task: Phase 3 unit catalogue vertical slice
+## Immediate task: Phase 4 Division Builder MVP
 
-Before starting Phase 3, inspect the working tree. Phase 2 is verified but may still be uncommitted because the previous session could not write `.git/index.lock`. Create the local milestone commit first if Git metadata is writable.
+Build the first complete builder journey on the proven canonical data boundary:
 
-Implement the catalogue against the Phase 2 loader without reading raw JSON in feature code:
-
-1. Load the `1.16-sample` `GameDataSet` in server-only route code.
-2. Add a small authored unit-guidance schema keyed by stable unit ID for explanation, strengths, weaknesses, and typical uses. Do not duplicate mechanical statistics.
-3. Replace the `/units` placeholder with a compact catalogue showing all six sample units.
-4. Add client-side search and filters for unit kind and category.
-5. Add `/units/[unitId]` detail pages with:
-   - Canonical mechanical statistics.
-   - Equipment and DLC requirements resolved to display names.
-   - Version/sample-status warning.
-   - Separate practical guidance.
-   - Related-unit links resolved by stable ID.
-6. Add clear empty, invalid-ID, and missing-guidance states.
-7. Add unit, component, route, and relevant browser tests.
-8. Keep the division builder untouched until the catalogue proves the data access pattern.
+1. Define framework-independent division-template types for a 5 × 5 line grid and five support slots.
+2. Implement pure structural rules:
+   - Top-down slot filling.
+   - One regiment group per occupied column.
+   - No duplicate support company.
+   - Maximum support-slot count.
+3. Add pure canonical aggregation for the subset of statistics that can be honestly combined from the sample data.
+4. Build an accessible client-side grid and unit picker using the same `GameDataSet` as the catalogue.
+5. Let users add, replace, and remove line battalions and support companies.
+6. Show structural errors next to the relevant action and keep invalid templates from being evaluated.
+7. Add one clearly labelled simplified role, such as defensive line infantry, with transparent assumptions and deterministic explanation rules.
+8. Add strengths, warnings, and suggestions without claiming complete HOI4 simulation accuracy.
+9. Add focused unit, component, and end-to-end tests for constructing and evaluating a sample division.
 
 ## Constraints
 
+- Do not copy statistics into builder components.
+- Do not add new canonical entities unless the builder genuinely needs them.
+- Keep evaluation logic pure and independent from React.
+- Do not implement accounts, saving, sharing, ratings, comments, or a database.
 - Do not expand to the full HOI4 dataset.
-- Do not present `1.16-sample` values as verified gameplay facts.
-- Do not place strengths, weaknesses, or recommendations in canonical mechanical JSON.
-- Do not add a database or authentication.
 - Keep `../divcheck` read-only.
 - Update progress, next-task, and decision documentation after the milestone.

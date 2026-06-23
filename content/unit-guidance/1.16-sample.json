@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "gameVersionId": "1.16-sample",
+  "entries": [
+    {
+      "unitId": "engineer-company",
+      "description": "A support company focused on improving a division's ability to prepare and operate in difficult defensive situations.",
+      "strengths": [
+        "Adds useful entrenchment in the current sample data",
+        "Uses a support slot instead of combat width",
+        "Fits many defensive and general-purpose formations"
+      ],
+      "weaknesses": [
+        "Adds equipment and supply cost",
+        "Does not provide meaningful direct attack in this sample",
+        "Its wider terrain effects are not modelled yet"
+      ],
+      "typicalUses": [
+        "Defensive line divisions",
+        "Units expected to fight across rivers or difficult terrain",
+        "General-purpose divisions with a spare support slot"
+      ]
+    },
+    {
+      "unitId": "infantry",
+      "description": "The basic foot battalion: slow and inexpensive compared with mobile or armored options, but strong at holding ground.",
+      "strengths": [
+        "High organization and HP in the current sample",
+        "Good defensive value for its equipment footprint",
+        "Does not consume fuel"
+      ],
+      "weaknesses": [
+        "Low breakthrough and limited offensive power",
+        "Slow strategic and tactical movement",
+        "No armor or hardness protection"
+      ],
+      "typicalUses": [
+        "Defensive line formations",
+        "Low-cost port or coastal guards",
+        "The holding element of artillery-supported divisions"
+      ]
+    },
+    {
+      "unitId": "line-artillery",
+      "description": "A line battalion that trades organization and durability for concentrated soft attack.",
+      "strengths": [
+        "Highest soft attack among the non-armored sample battalions",
+        "Adds offensive pressure against soft targets",
+        "Pairs naturally with infantry that supplies organization and HP"
+      ],
+      "weaknesses": [
+        "Contributes no organization in the current sample",
+        "Uses more combat width than infantry",
+        "Raises artillery equipment and supply requirements"
+      ],
+      "typicalUses": [
+        "Infantry divisions intended to deal more soft damage",
+        "Limited offensive infantry formations",
+        "Templates that can afford extra artillery production"
+      ]
+    },
+    {
+      "unitId": "medium-tank",
+      "description": "An armored line battalion built around breakthrough, armor, hardness, and a mixed attack profile.",
+      "strengths": [
+        "Strong breakthrough in the current sample",
+        "Meaningful armor, piercing, and hardness",
+        "Higher speed than foot infantry"
+      ],
+      "weaknesses": [
+        "Low organization and HP when used without supporting battalions",
+        "High fuel, supply, and specialized equipment burden",
+        "Final performance depends heavily on an equipment design not modelled here"
+      ],
+      "typicalUses": [
+        "Armored breakthrough formations",
+        "Mobile divisions supported by motorized battalions",
+        "Concentrated attacks where industry and fuel are available"
+      ]
+    },
+    {
+      "unitId": "motorized-infantry",
+      "description": "Infantry transported by trucks, retaining much of infantry's staying power while moving considerably faster.",
+      "strengths": [
+        "High organization and HP in the current sample",
+        "Fast enough to accompany mobile and armored formations",
+        "Adds a small amount of hardness"
+      ],
+      "weaknesses": [
+        "Consumes trucks and fuel",
+        "More expensive than foot infantry",
+        "Still has low breakthrough and direct attack"
+      ],
+      "typicalUses": [
+        "Organization and HP inside armored divisions",
+        "Mobile exploitation formations",
+        "Rapid reinforcement of threatened sectors"
+      ]
+    },
+    {
+      "unitId": "support-artillery",
+      "description": "A support-slot source of soft attack that adds no combat width in the current sample.",
+      "strengths": [
+        "Adds useful soft attack without line combat width",
+        "Requires less artillery equipment than line artillery",
+        "Fits a wide range of infantry formations"
+      ],
+      "weaknesses": [
+        "Uses one of only five future support slots",
+        "Adds some supply and equipment cost",
+        "Provides less raw attack than a line artillery battalion"
+      ],
+      "typicalUses": [
+        "General-purpose infantry divisions",
+        "Low-width defensive formations needing extra damage",
+        "Templates that cannot spare line width for artillery"
+      ]
+    }
+  ]
+}

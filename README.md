@@ -16,7 +16,16 @@ Phase 0 (repository foundation) and Phase 1 (application shell) are complete. Th
 - Accessible error and not-found states.
 - Linting, formatting, type-checking, unit/component tests, browser smoke tests, and CI.
 
-Phase 2 adds the first canonical, version-aware game-data schemas, loaders, validation command, and representative sample snapshot. No catalogue UI, game-data calculations, authentication, database, or community features are implemented yet.
+Phase 3 adds a complete Unit Catalogue vertical slice over the representative sample data:
+
+- Searchable and filterable `/units` catalogue with shareable URL parameters.
+- Responsive compact cards using canonical statistics.
+- Static `/units/[unitId]` detail pages.
+- Resolved equipment, DLC, and related-unit references.
+- Separately validated practical guidance.
+- Explicit warnings wherever the sample data is incomplete or unverified.
+
+The catalogue is intentionally small. No division calculations, authentication, database, or community features are implemented yet.
 
 ## Tech stack
 

@@ -65,6 +65,8 @@ Official/mechanical data belongs under `data/game`.
 
 Battleplan recommendations and guide prose belong under `content` or framework-independent evaluation rules. Future user-generated content belongs in the community database. These sources must be labelled separately in the interface.
 
+Phase 3 practical unit guidance lives in version-aware files under `content/unit-guidance/`. Guidance records reference canonical unit IDs and are validated against the loaded snapshot. They intentionally contain no unit statistics or mechanical requirements.
+
 ## Accuracy
 
 Equipment designs, technologies, doctrines, country modifiers, and DLC can alter results. Early schemas should permit future modifiers, but the MVP must label simplified assumptions rather than claim complete simulation accuracy.

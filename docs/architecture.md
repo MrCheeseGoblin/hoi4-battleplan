@@ -51,6 +51,17 @@ tests/e2e/                     Critical browser journeys
 
 Empty feature and data directories are added only when their first implementation needs them.
 
+The Phase 3 catalogue follows this boundary:
+
+```text
+src/app/units/                         Routes and route states
+src/features/unit-catalogue/           Search, filters, view models, UI
+src/lib/game-data/                     Canonical mechanical source
+content/unit-guidance/<version>.json   Separate authored advice
+```
+
+Catalogue routes never import raw canonical JSON. They consume a `GameDataSet`, resolve relationships into view models, and combine it with separately validated guidance.
+
 ## Testing
 
 - Vitest covers pure domain logic.
@@ -70,3 +81,4 @@ PostgreSQL and a typed ORM may be introduced when community features require per
 - No duplicated unit statistics in UI modules.
 - No direct dependency from pure evaluation logic to Next.js or React.
 - Canonical consumers load a complete `GameDataSet`; feature code must not read raw JSON files directly.
+- Practical catalogue guidance may reference canonical stable IDs but must not duplicate mechanical values.

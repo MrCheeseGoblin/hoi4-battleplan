@@ -38,6 +38,25 @@ Validation also runs in unit tests, production builds, and CI.
 
 Every unit requires the complete current `stats` object. A missing value is an error; the loader does not silently invent defaults for mechanical statistics.
 
+## Add practical unit guidance
+
+Practical explanations are authored separately under:
+
+```text
+content/unit-guidance/<game-version-id>.json
+```
+
+Add one entry keyed by the canonical unit's stable `unitId`. Guidance may contain:
+
+- A practical description.
+- Strengths.
+- Weaknesses.
+- Typical uses.
+
+Do not repeat statistics, equipment counts, classifications, DLC requirements, or other mechanical fields in guidance. The catalogue resolves those from the canonical `GameDataSet`.
+
+Guidance files are runtime-validated when the catalogue loads. Unknown or duplicate unit IDs fail the build and tests.
+
 ## Add a game version
 
 1. Copy the structure of an existing version directory, not its conclusions.
