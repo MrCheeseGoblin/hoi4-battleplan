@@ -10,6 +10,12 @@ data/game/<game-version>/
 
 The unit catalogue and division builder must load the same records through the same validated loader. Feature-specific copies of unit statistics are forbidden.
 
+Division templates store only the selected game-version ID, role ID, and stable
+unit IDs in fixed line/support slots. Calculated statistics and equipment totals
+are derived on demand from the matching `GameDataSet`. Future persisted or
+shared templates must keep this version reference so later data snapshots do
+not silently change historical results.
+
 ## Implemented Phase 2 layout
 
 ```text

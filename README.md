@@ -8,24 +8,24 @@ The project is not affiliated with or endorsed by Paradox Interactive. It uses a
 
 ## Current status
 
-Phase 0 (repository foundation) and Phase 1 (application shell) are complete. The current application provides:
+Phases 0 through 4 are complete. The current application provides:
 
 - A responsive shared layout and original visual system.
-- Homepage and placeholder routes for divisions, units, and guides.
-- An about page with the project principles and disclaimer.
-- Accessible error and not-found states.
-- Linting, formatting, type-checking, unit/component tests, browser smoke tests, and CI.
-
-Phase 3 adds a complete Unit Catalogue vertical slice over the representative sample data:
-
 - Searchable and filterable `/units` catalogue with shareable URL parameters.
 - Responsive compact cards using canonical statistics.
 - Static `/units/[unitId]` detail pages.
 - Resolved equipment, DLC, and related-unit references.
 - Separately validated practical guidance.
-- Explicit warnings wherever the sample data is incomplete or unverified.
+- An interactive `/divisions` builder with a 5 × 5 line grid and five support slots.
+- Structural placement rules with specific feedback.
+- Canonical aggregate statistics and equipment requirements.
+- Transparent evaluation for defensive-line and offensive-infantry roles.
+- Strengths, weaknesses, critical warnings, suggestions, and explicit assumptions.
+- Accessible route states, automated checks, and browser coverage.
 
-The catalogue is intentionally small. No division calculations, authentication, database, or community features are implemented yet.
+The canonical dataset remains intentionally small and unverified. The builder is
+a simplified coaching model, not a complete HOI4 simulation. Authentication,
+database persistence, and community features are not implemented.
 
 ## Tech stack
 
@@ -121,6 +121,7 @@ The master product brief is preserved as `MASTER_BUILD_BRIEF.md`. It is the auth
 - [Architecture](docs/architecture.md)
 - [Data strategy](docs/data-strategy.md)
 - [Adding game data](docs/adding-game-data.md)
+- [Division Builder rules](docs/division-builder.md)
 - [Design direction](docs/design-direction.md)
 - [Roadmap](docs/roadmap.md)
 - [Architecture decisions](docs/decisions.md)

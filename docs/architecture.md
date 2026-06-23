@@ -40,7 +40,7 @@ src/
   features/unit-catalogue/     Catalogue UI and query helpers
   features/nation-guides/      Guide presentation
   lib/game-data/               Zod schemas, loaders, validation
-  lib/evaluation/              Pure division rules and calculations
+  features/division-builder/  Builder UI plus pure domain rules
   lib/versioning/              Shared version utilities
   types/                       Cross-feature TypeScript types
 data/game/<game-version>/      Canonical mechanical data
@@ -62,6 +62,23 @@ content/unit-guidance/<version>.json   Separate authored advice
 
 Catalogue routes never import raw canonical JSON. They consume a `GameDataSet`, resolve relationships into view models, and combine it with separately validated guidance.
 
+The Phase 4 builder follows this boundary:
+
+```text
+src/app/divisions/                     Server route and canonical loading
+src/features/division-builder/
+  division-builder.tsx                 Browser state and event handling
+  *-grid.tsx / *-panel.tsx             Presentation components
+  template.ts / validation.ts          Pure structural operations and rules
+  calculation.ts / evaluation.ts       Pure statistics and role coaching
+src/lib/game-data/                     Canonical mechanical source
+```
+
+Templates contain stable unit IDs and a game-version ID, never copied unit
+statistics. The client receives one validated `GameDataSet`; every calculation,
+picker label, and equipment total resolves through that snapshot. Structural
+validation, aggregation, and role evaluation are separate deterministic steps.
+
 ## Testing
 
 - Vitest covers pure domain logic.
@@ -75,7 +92,7 @@ PostgreSQL and a typed ORM may be introduced when community features require per
 
 ## Boundaries
 
-- No database or authentication in the current foundation.
+- No database or authentication in the current MVP.
 - No separate backend service.
 - No network calls for canonical game data at runtime.
 - No duplicated unit statistics in UI modules.

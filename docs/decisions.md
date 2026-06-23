@@ -116,3 +116,27 @@ Record durable choices here so future sessions do not have to reconstruct them.
 - **Status:** Accepted
 - **Decision:** Implement catalogue search and filters as a semantic GET form. Parse and apply filters in framework-independent utilities on the server.
 - **Why:** Filtered views are shareable, refresh-safe, keyboard-accessible, and useful without client-side state or extra JavaScript.
+
+## ADR-017: Division templates store stable IDs in fixed slots
+
+- **Date:** 2026-06-23
+- **Status:** Accepted
+- **Decision:** Represent an MVP division as a version ID, role ID, 25 line-slot unit IDs, and five support-slot unit IDs.
+- **Why:** A fixed shape makes structural rules explicit and serializable without copying canonical statistics.
+- **Consequence:** Empty slots are `null`; columns fill top-down, each occupied column uses one regiment group, and duplicate support companies are rejected.
+
+## ADR-018: Separate structural validation, aggregation, and role evaluation
+
+- **Date:** 2026-06-23
+- **Status:** Accepted
+- **Decision:** Implement template operations, structural validation, canonical stat aggregation, and role evaluation as separate pure TypeScript modules inside the Division Builder feature.
+- **Why:** Each stage has different rules and failure modes. Separation keeps the logic deterministic, framework-independent, and directly testable.
+- **Consequence:** React components may orchestrate these functions but must not contain scoring thresholds or canonical unit statistics.
+
+## ADR-019: Role-specific coaching replaces a universal division score
+
+- **Date:** 2026-06-23
+- **Status:** Accepted
+- **Decision:** The MVP supports defensive-line infantry and offensive infantry with readable weighted dimensions and role-specific thresholds.
+- **Why:** Division quality depends on intended use; one unexplained universal score would imply false objectivity.
+- **Consequence:** The interface labels the result as role suitability, exposes every dimension and assumption, refuses to score empty or invalid templates, and caps one-battalion skeletons below a positive result.

@@ -10,7 +10,7 @@ const featureCards = [
       "Shape a division, choose its job, and see transparent strengths, risks, assumptions, and improvements.",
     href: "/divisions",
     linkLabel: "Open division workspace",
-    status: "Shell ready",
+    status: "Phase 4",
   },
   {
     code: "02 / Units",
@@ -120,7 +120,7 @@ export default function HomePage() {
                     Current
                   </dt>
                   <dd className="text-sm leading-6 text-paper-100">
-                    Building the trusted data foundation.
+                    Builder and unit catalogue ready for sample-data testing.
                   </dd>
                 </div>
               </dl>
